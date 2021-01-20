@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FinanceController;
+use App\Http\Controllers\UserFinanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('registration',RegistrationController::class)->only(['store']);
+Route::apiResource('users.finances',UserFinanceController::class)->only(['index']);
+Route::apiResource('finances',FinanceController::class);
 
 //api/auth/login
 
